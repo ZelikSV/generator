@@ -56,4 +56,5 @@ async function runnerFunction(arg){
   return resArray;
 }
 
+
 runnerFunction(gen()).then(data => console.log(data.pop() === '441,2,3,4' ? "Good Job" : "You are fail this task"));
