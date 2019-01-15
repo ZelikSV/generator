@@ -3,7 +3,7 @@ function *some(){
   const c = yield val2;
   const b = yield prom;
   const d = yield val;
-  // console.log(a, b, c, d);
+  console.log(a, b, c, d);
 }
 const prom = new Promise((res)=>{
 setTimeout(() => {
@@ -28,7 +28,7 @@ async function runnerFunction(arg){
     value = value();
     resArray.push(value);
     }else if(value === undefined){
-      
+      return;
     }else if(value instanceof Promise){
       value.then(data => { 
         value = data;
@@ -45,7 +45,7 @@ async function runnerFunction(arg){
     if(typeof value === 'function'){
     resArray.push(value);
     }else if(value === undefined){
-      
+      return;
     }else if(value instanceof Promise){
        value.then(data => {
         resArray.push(data);
@@ -55,8 +55,5 @@ async function runnerFunction(arg){
     }
   }
   return resArray;
-  // console.log(resArray);
-  
-  
 }
 runnerFunction(iterator).then(data => console.log(data));
